@@ -1,0 +1,53 @@
+{%extends "home.html"%} {%block title%} Pet Details {%endblock%} {% block
+content %}
+<!-- Add content -->
+<h1>Pet Details</h1>
+<table>
+  <thead>
+    <th>Pet Name</th>
+    <th>Species</th>
+    {%if pet.photo%}
+    <th>Photo</th>
+    {%endif%} {%if pet.age%}
+    <th>Age</th>
+    {%endif%}
+    <th>Notes</th>
+    <th>available</th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{pet.pet_name}}</td>
+      <td>{{pet.species}}</td>
+      {%if pet.photo%}
+      <td>{{pet.photo}}</td>
+      {%endif%} {%if pet.age%}
+      <td>{{pet.age}}</td>
+      {%endif%}
+      <td>{{pet.notes}}</td>
+      <!-- Come back and make True avail. bold, otherwise not bold -->
+      {%if pet.available%}
+      <td><b>{{pet.available}}</b></td>
+      {%endif%}
+    </tr>
+  </tbody>
+</table>
+<!-- Add Edit Form  -->
+
+<h2>Edit Form</h2>
+
+<form method="POST">
+  <!-- hidden tag = CSRF Cross Site Request Forgery Token -->
+  {{ form.hidden_tag() }}
+  <!-- For fields that can be revised display fields -->
+
+  <p>
+    {{form.photo_url.label}} {{form.photo_url}}
+    {{form.notes.label}}{{form.notes}}
+    {{form.available.label}}{{form.available}} {% for error in form.errors %} {{
+    error }} {%endfor %}
+  </p>
+
+  <button type="submit">Submit Revisions</button>
+</form>
+
+{%endblock%}

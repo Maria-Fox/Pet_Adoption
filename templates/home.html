@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {%block head%}
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %} All Pets{% endblock %}</title>
+    {%endblock%}
+  </head>
+  <body>
+    {%block content%}
+    <table>
+      <thead>
+      <th>Pet Name</th>
+      <th>Species</th>
+      <th>Photo</th>
+      <th>Age</th>
+      <th>Notes</th>
+      <th>Available</th>
+    </thead>
+      <tbody>
+        {%for pet in pets%}
+        <tr>
+          <td><a href="/{{pet.id}}">{{pet.pet_name}}<a></td>
+          <td>{{pet.species}}</td>
+          <td>{{pet.photo}}</td>
+          <td>{{pet.age}}</td>
+          <td>{{pet.notes}}</td>
+          <!-- Come back and make True avail. bold -->
+          {%if pet.available == 'True'%}
+          <td><b>{{pet.available}}</b></td>
+          {%else%}
+          <td>{{pet.available}}</td>
+          {%endif%}
+        </tr>
+        {%endfor%}
+      </tbody>
+    </table>
+    <a href= "/add" >Add a Pet</a>
+    {%endblock%}
+  </body>
+</html>

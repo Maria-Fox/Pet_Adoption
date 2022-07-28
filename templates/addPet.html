@@ -1,0 +1,20 @@
+{%extends "home.html"%} {%block title %} Add Pet {%endblock%} {%block content%}
+<!-- Form here -->
+<h1>Add a Pet</h1>
+<form method="POST">
+  <!-- hidden tag = CSRF Cross Site Request Forgery Toeken  -->
+  {{ form.hidden_tag() }}
+  <!-- For visible form fields create label, field error displays -->
+  {% for field in form if field.widget.input_type != 'hidden' %}
+
+  <p>
+    {{ field.label }} {{ field }} {% for error in field.errors %} {{ error }} {%
+    endfor %}
+  </p>
+
+  {% endfor %}
+  <button type="submit">Submit</button>
+</form>
+<br />
+<a href="/">Visit Homepage</a>
+{%endblock%}
