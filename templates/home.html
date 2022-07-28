@@ -5,11 +5,13 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/static/styling.css">
     <title>{% block title %} All Pets{% endblock %}</title>
     {%endblock%}
   </head>
   <body>
     {%block content%}
+    <h1>Pet Adoption</h1>
     <table>
       <thead>
       <th>Pet Name</th>
@@ -24,7 +26,7 @@
         <tr>
           <td><a href="/{{pet.id}}">{{pet.pet_name}}<a></td>
           <td>{{pet.species}}</td>
-          <td>{{pet.photo}}</td>
+          <td><img src="{{pet.photo_url}}" alt="pet photo"></td>
           <td>{{pet.age}}</td>
           <td>{{pet.notes}}</td>
           <!-- Come back and make True avail. bold -->
@@ -37,7 +39,7 @@
         {%endfor%}
       </tbody>
     </table>
-    <a href= "/add" >Add a Pet</a>
+    <a href= "/add" class = "btn">Add a Pet</a>
     {%endblock%}
   </body>
 </html>

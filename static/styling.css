@@ -1,0 +1,43 @@
+body {
+  background-color: beige;
+}
+
+h1 {
+  font-size: 2rem;
+  background-color: rgb(223, 151, 63);
+}
+
+table,
+th,
+td {
+  border: 2px solid black;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+img {
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
+}
+
+.btn {
+  background-color: bisque;
+  border: 2px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  margin-top: 10px;
+  position: absolute;
+  top: 0;
+  right: 0; /* bottom: 100%; */
+}
+
+.home-link {
+  position: absolute;
+  left: 0%;
+  bottom: 0%;
+}
+
+form {
+  border: 2px solid rgb(223, 151, 63);
+}

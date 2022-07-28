@@ -67,7 +67,7 @@ def show_detail_edits(id):
     pet.available = form.available.data
 
     db.session.add(pet)
-    db.session.commit(pet)
+    db.session.commit()
 
     return redirect("/")
 

@@ -12,7 +12,7 @@ class Pet_Form(FlaskForm):
 # filed for completion = type of field (rendered to client)
   pet_name = StringField("Pet Name", validators = [InputRequired()])
 
-  species = SelectField("Species", choices =[('Cat', "Cat"), ("Dog", "Dog"), ("p_pine", "Porcupine")], validators = [InputRequired()])
+  species = SelectField("Species", choices =[('Cat', "Cat"), ("Dog", "Dog"), ("Porcupine", "Porcupine")], validators = [InputRequired()])
 
   photo_url = URLField("Photo URL", validators =[Optional(), URL()])
 
@@ -33,7 +33,7 @@ class EditPetForm(FlaskForm):
 
     notes = TextAreaField(
         "Comments",
-        validators=[Optional(), Length(min=10)],
+        validators=[Optional(), Length(min=5)],
     )
 
     available = BooleanField("Available")
